@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Load image 
-image = cv2.imread('./../data/blob_detection.jpg', 0)
+image = cv2.imread('./../data/blobs.png', 0)
 
 #image = cv2.bitwise_not(image)
 
@@ -34,12 +34,11 @@ keypoints = detector.detect(image)
 
 # Draw blobs on our image as red circles 
 blank = np.zeros((1, 1))
-blobs = cv2.drawKeypoints(image, keypoints, blank, (0, 0, 255),
-                          cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+blobs = cv2.drawKeypoints(image, keypoints, blank, (0, 0, 255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
 number_of_blobs = len(keypoints)
 text = "Number of Circular Blobs: " + str(len(keypoints))
-cv2.putText(blobs, text, (20, 550),cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 100, 255), 2)
+cv2.putText(blobs, text, (0, 30),cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 100, 255), 1)
 
 # Show blobs 
 cv2.imshow("Filtering Circular Blobs Only", blobs)

@@ -1,13 +1,12 @@
 import numpy as np
 import cv2
-import üstüneÇizme
 
-img = cv2.imread("./../data/scan1.jpg",1)
+img = cv2.imread("./../data/blob_detection.jpg",0)
+image = img
 # convert image to grayscale image
-gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # convert the grayscale image to binary image
-ret, thresh = cv2.threshold(gray_image, 127, 255, 0)
+ret, thresh = cv2.threshold(img, 127, 255, 0)
 
 # calculate moments of binary image
 M = cv2.moments(thresh)
@@ -22,5 +21,6 @@ cv2.putText(img, "centroid", (cX - 25, cY - 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 
 
 # display the image
 cv2.imshow("Image", img)
+cv2.imshow("First Image", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
