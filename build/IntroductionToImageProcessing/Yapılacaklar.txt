@@ -1,1 +1,3 @@
 edge detection'a hazir fonksiyonlarla ornek verilecek
+cv2 ile arka plan ayıklama class kullanarak yapılacak 
+cv2 ile blob detection class kullanarak yapılacak
